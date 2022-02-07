@@ -10,20 +10,8 @@ export default function Layout({ children }) {
     <>
       <Head>
         <title>CRM - Administracion de Clientes</title>
-        <link
-          rel="stylesheet"
-          href="/normalize.min.css"
-          integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
-          crossOrigin="anonymous"
-          referrerPolicy="no-referrer"
-        />
-        <link
-          rel="stylesheet"
-          href="/tailwind.min.css"
-          integrity="sha512-1Syxn6SauehFJWEP+FayZmh0iQhCyf0Hmkf1goyhnVRGBTubtBJj8oLroZ/3/Q1uYKYFgWgBBgA1mtFbFl/Ucg=="
-          crossOrigin="anonymous"
-          referrerPolicy="no-referrer"
-        />
+        <link rel="stylesheet" href="/normalize.min.css" />
+        <link rel="stylesheet" href="/tailwind.min.css" />
       </Head>
 
       {router.pathname === "/login" || router.pathname === "/register" ? (
@@ -35,7 +23,7 @@ export default function Layout({ children }) {
           <div className="flex min-h-screen">
             <Sidebar />
             <main className="sm:w-2/3 xl:w-4/5 sm:min-h-screen p-5">
-              <Header/>
+              <Header />
               {children}
             </main>
           </div>
