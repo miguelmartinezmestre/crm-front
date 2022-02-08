@@ -14,14 +14,14 @@ const Header = () => {
   const { data, loading, error } = useQuery(usuario);
   const router = useRouter();
 
-  function cerrarSesion() {
+  function cerrarSesion():void {
     localStorage.removeItem("token");
     client.clearStore();
     router.push("/login");
   }
 
   if (loading) {
-    return "Cargando...";
+    return <div>Cargando...</div>;
   }
 
   return (

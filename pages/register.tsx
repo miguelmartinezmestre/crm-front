@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useMutation, gql } from "@apollo/client";
 import { useState } from "react";
-import { useRouter } from "next/router";
+import { NextRouter, useRouter } from "next/router";
 
 const register = gql`
   mutation Mutation($input: UsuarioInput) {
@@ -19,8 +19,8 @@ const register = gql`
 
 export default function Register() {
   const [nuevoUsuario] = useMutation(register);
-  const [mensaje, setMensaje] = useState(null);
-  const router = useRouter();
+  const [mensaje, setMensaje] = useState<string>(null);
+  const router:NextRouter = useRouter();
 
   const formik = useFormik({
     initialValues: {

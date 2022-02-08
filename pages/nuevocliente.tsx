@@ -2,7 +2,7 @@ import Layout from "../components/Layout";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useMutation, gql } from "@apollo/client";
-import { useRouter } from "next/router";
+import { NextRouter, useRouter } from "next/router";
 import { useState } from "react";
 
 const nuevocliente = gql`
@@ -48,8 +48,8 @@ export default function NuevoCliente() {
       });
     },
   });
-  const router = useRouter();
-  const [mensaje, setMensaje] = useState(null);
+  const router:NextRouter = useRouter();
+  const [mensaje, setMensaje] = useState<string>(null);
 
   const formik = useFormik({
     initialValues: {
@@ -82,17 +82,8 @@ export default function NuevoCliente() {
             },
           },
         });
-        console.log(data);
         router.push("/");
-
-        //setMensaje(`Se creo correctamente el cliente: ${data.nuevoUsuario.nombre}`);
-
-        /* setTimeout(() => {
-          setMensaje(null);
-          router.push("/login");
-        }, 3000);*/
       } catch (e) {
-        //setMensaje(e.message.replace("Graphql error: ", ""));
         console.log(e);
         setMensaje(e.message.replace("Graphql error", ""));
         setTimeout(() => {

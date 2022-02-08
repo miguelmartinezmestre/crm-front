@@ -1,10 +1,15 @@
 import Head from "next/head";
 import Sidebar from "./Sidebar";
-import { useRouter } from "next/router";
+import { NextRouter, useRouter } from "next/router";
 import Header from "./Header";
+import {ReactNode} from "react"
 
-export default function Layout({ children }) {
-  const router = useRouter();
+interface Props{
+  children:ReactNode
+}
+
+export default function Layout({ children }:Props) {
+  const router:NextRouter = useRouter();
 
   return (
     <>

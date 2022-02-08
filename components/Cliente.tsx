@@ -1,6 +1,7 @@
 import { gql, useMutation } from "@apollo/client";
 import Router from "next/router";
 import Swal from "sweetalert2";
+import { ClienteType } from "../types";
 
 const eliminar = gql`
   mutation Mutation($id: ID!) {
@@ -22,7 +23,11 @@ const obtenerClientes = gql`
   }
 `;
 
-export default function Cliente({ cliente }) {
+interface Props{
+  cliente:ClienteType
+}
+
+export default function Cliente({ cliente }:Props) {
   const [eliminarCliente] = useMutation(eliminar, {
     update(cache) {
       const { obtenerClientesVendedor } = cache.readQuery({
@@ -67,7 +72,7 @@ export default function Cliente({ cliente }) {
     });
   };
 
-  const editarCliente = (id) => {
+  const editarCliente = (id:string):void => {
     Router.push({
       pathname: "/editarcliente/[id]",
       query: { id },

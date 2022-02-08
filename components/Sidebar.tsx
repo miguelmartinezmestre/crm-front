@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { NextRouter, useRouter } from "next/router";
 
 export default function Sidebar() {
-  const router = useRouter();
+  const router:NextRouter = useRouter();
 
   return (
     <aside className="bg-gray-800 sm:w-1/3 xl:w-1/5 sm:min-h-screen p-5">

@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 import Layout from "../components/Layout";
 import * as Yup from "yup";
 import { gql, useMutation } from "@apollo/client";
-import { useRouter } from "next/router";
+import { NextRouter, useRouter } from "next/router";
 
 const auth = gql`
   mutation AutenticarUsuario($input: AutenticarInput) {
@@ -15,8 +15,8 @@ const auth = gql`
 
 export default function Login() {
   const [autenticarUsuario] = useMutation(auth);
-  const [mensaje, setMensaje] = useState(null);
-  const router = useRouter();
+  const [mensaje, setMensaje] = useState<string>(null);
+  const router:NextRouter = useRouter();
 
   const formik = useFormik({
     initialValues: {
