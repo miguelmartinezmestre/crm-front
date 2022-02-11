@@ -3,7 +3,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Cliente from "../components/Cliente";
 import Layout from "../components/Layout";
-import { FC } from "react";
 
 const obtenerClientes = gql`
   query getClientes {
@@ -21,16 +20,8 @@ const obtenerClientes = gql`
 export default function Index(){
   const { data, loading } = useQuery(obtenerClientes);
   const router = useRouter();
-
   if (loading) return "Cargando...";
-
-  if (
-    localStorage.getItem("authorization") === "" ||
-    !data.obtenerClientesVendedor
-  ) {
-    router.push("/login");
-    return null;
-  } else {
+  if (!localStorage.getItem("token")){router.push("/login");return <div>Cargando...</div>}
     return (
       <div>
         <Layout>
@@ -64,4 +55,3 @@ export default function Index(){
       </div>
     );
   }
-}

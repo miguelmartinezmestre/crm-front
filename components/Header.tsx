@@ -23,6 +23,7 @@ const Header = () => {
   if (loading) {
     return <div>Cargando...</div>;
   }
+  if (!localStorage.getItem("token")){router.push("/login");return <div>Cargando...</div>}
 
   return (
     <div className="flex justify-end">
