@@ -1,3 +1,4 @@
+import "../styles/globals.css"
 import { ApolloProvider } from "@apollo/client/react";
 import { AppProps } from "next/dist/shared/lib/router/router";
 import { client } from "../Apollo";

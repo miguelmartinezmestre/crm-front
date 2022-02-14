@@ -15,8 +15,8 @@ export default function Layout({ children }:Props) {
     <>
       <Head>
         <title>CRM - Administracion de Clientes</title>
-        <link rel="stylesheet" href="/normalize.min.css" />
-        <link rel="stylesheet" href="/tailwind.min.css" />
+        {/* <link rel="stylesheet" href="/normalize.min.css" /> */}
+        {/* <link rel="stylesheet" href="/tailwind.min.css" /> */}
       </Head>
 
       {router.pathname === "/login" || router.pathname === "/register" ? (
